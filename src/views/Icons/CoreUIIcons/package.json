@@ -2,5 +2,5 @@
   "name": "CoreUIIcons",
   "version": "0.0.0",
   "private": true,
-  "main": "./MainAccount.js"
+  "main": "./CoreUIIcons.js"
 }
