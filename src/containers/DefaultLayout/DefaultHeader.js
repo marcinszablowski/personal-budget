@@ -22,11 +22,11 @@ class DefaultHeader extends Component {
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
-        <AppNavbarBrand
-          full={{ src: logo, width: 89, height: 25, alt: 'Personal Budget Logo' }}
-          minimized={{ src: sygnet, width: 30, height: 30, alt: 'Personal Budget Logo' }}
+        <AppNavbarBrand className="logo-margin"
+          full={{ src: logo, width: 180, height: 77, alt: 'Happy Wallet Logo' }}
+          minimized={{ src: sygnet, width: 30, height: 30, alt: 'Happy Wallet Logo' }}
         />
-        <AppSidebarToggler className="d-md-down-none" display="lg" />
+        <AppSidebarToggler className="d-md-down-none ml-4" display="lg" />
 
         <Nav className="ml-auto" navbar>
           <NavItem className="d-md-down-none">

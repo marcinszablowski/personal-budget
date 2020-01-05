@@ -1,6 +1,6 @@
 import Colors from './Colors';
-import Typography from './Typography';
+import Goals from './Goals';
 
 export {
-  Colors, Typography,
+  Colors, Goals,
 };

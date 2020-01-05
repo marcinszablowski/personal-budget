@@ -11,48 +11,31 @@ export default {
     },
 
     {
-      title: true,
-      name: ' ',
-      wrapper: {
-        element: '',
-        attributes: {},
-      },
-    },
-
-    {
       name: 'Konta',
-      url: '/theme/colors',
+      url: '/accounts/main-account',
       icon: 'icon-credit-card',
       children: [
         {
           name: 'Konto główne',
-          url: '/icons/coreui-icons',
-          icon: '',
+          url: '/accounts/main-account',
+          icon: 'icon-arrow-right',
         },
         {
           name: 'Oszczędności',
           url: '/',
-          icon: '',
+          icon: 'icon-arrow-right',
         },
         {
           name: 'Wakacje',
-          url: '/icons',
-          icon: '',
+          url: '/',
+          icon: 'icon-arrow-right',
         },
       ],
     },
     {
       name: 'Cele',
-      url: '/theme/typography',
+      url: '/goals',
       icon: 'icon-target',
-    },
-    {
-      title: true,
-      name: ' ',
-      wrapper: {
-        element: '',
-        attributes: {},
-      },
     },
   
     {
@@ -62,17 +45,17 @@ export default {
       children: [
         {
           name: 'Konta',
-          url: '/icons/coreui-icons',
+          url: '/',
           icon: 'icon-credit-card',
         },
         {
           name: 'Kategorie',
-          url: '/icons/flags',
+          url: '/',
           icon: 'icon-tag',
         },
         {
           name: 'Profil użytkownika',
-          url: '/icons/font-awesome',
+          url: '/',
           icon: 'icon-user',
         },
       ],

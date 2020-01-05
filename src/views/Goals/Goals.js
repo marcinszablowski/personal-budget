@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Typography extends Component {
+class Goals extends Component {
   render() {
     return (
       <div className="animated fadeIn">
@@ -167,4 +167,4 @@ class Typography extends Component {
   }
 }
 
-export default Typography;
+export default Goals;
