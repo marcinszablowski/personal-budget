@@ -3,6 +3,19 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import * as router from 'react-router-dom';
 import { Container } from 'reactstrap';
 
+
+// *Firebase
+// import { DB_CONFIG } from '../../views/Config/config'
+// // import firebase from 'firebase/app';
+
+// // Firebase App (the core Firebase SDK) is always required and must be listed first
+// import * as firebase from "firebase/app";
+
+// // Add the Firebase products that you want to use
+// import "firebase/auth";
+// import "firebase/firestore";
+
+
 import {
   AppAside,
   AppFooter,
@@ -33,12 +46,31 @@ class DefaultLayout extends Component {
     this.props.history.push('/login')
   }
 
+
   render() {
+    
+    // if (!firebase.apps.length) {
+    //   firebase.initializeApp(DB_CONFIG);
+    // }
+    
+    // console.log(firebase);
+
+    // firebase.database();
+
+    // const ref = database.ref("transactions");
+
+    // let data = {
+    //   ammount: 10,
+    //   category: "Transport"
+    // }
+
+    // ref.push(data);
+
     return (
       <div className="app">
         <AppHeader fixed>
-          <Suspense  fallback={this.loading()}>
-            <DefaultHeader onLogout={e=>this.signOut(e)}/>
+          <Suspense fallback={this.loading()}>
+            <DefaultHeader onLogout={e => this.signOut(e)} />
           </Suspense>
         </AppHeader>
         <div className="app-body">
@@ -46,15 +78,15 @@ class DefaultLayout extends Component {
             <AppSidebarHeader />
             <AppSidebarForm />
             <Suspense>
-            <AppSidebarNav navConfig={navigation} {...this.props} router={router}/>
+              <AppSidebarNav navConfig={navigation} {...this.props} router={router} />
             </Suspense>
             <AppSidebarFooter />
             <AppSidebarMinimizer />
           </AppSidebar>
-          
+
           <main className="main">
             {/* <AppBreadcrumb appRoutes={routes} router={router}/> */}
-            <Container fluid style={{paddingTop: "30px"}}>
+            <Container fluid style={{ paddingTop: "30px" }}>
               <Suspense fallback={this.loading()}>
                 <Switch>
                   {routes.map((route, idx) => {

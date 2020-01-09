@@ -27,7 +27,6 @@ const MainAccount = React.lazy(() => import('./views/Accounts/MainAccount'));
 
 const Flags = React.lazy(() => import('./views/Accounts/Flags'));
 const FontAwesome = React.lazy(() => import('./views/Accounts/FontAwesome'));
-const SimpleLineIcons = React.lazy(() => import('./views/Accounts/SimpleLineIcons'));
 const Alerts = React.lazy(() => import('./views/Notifications/Alerts'));
 const Badges = React.lazy(() => import('./views/Notifications/Badges'));
 const Modals = React.lazy(() => import('./views/Notifications/Modals'));
@@ -71,7 +70,6 @@ const routes = [
   { path: '/accounts/main-account', name: 'Main Account', component: MainAccount },
   { path: '/icons/flags', name: 'Flags', component: Flags },
   { path: '/icons/font-awesome', name: 'Font Awesome', component: FontAwesome },
-  { path: '/icons/simple-line-icons', name: 'Simple Line Icons', component: SimpleLineIcons },
   { path: '/notifications', exact: true, name: 'Notifications', component: Alerts },
   { path: '/notifications/alerts', name: 'Alerts', component: Alerts },
   { path: '/notifications/badges', name: 'Badges', component: Badges },
