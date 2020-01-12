@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Badge, Button, Card, CardBody, CardHeader, Col, Row, Table, ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText, Form, Label, Input, FormGroup } from 'reactstrap';
 import ExpenseDialog from '../ExpenseDialog';
 import IncomeDialog from '../IncomeDialog';
+import TransactionListItems from '../TransactionListItems'
 
 class MainAccount extends Component {
 
@@ -10,12 +11,15 @@ class MainAccount extends Component {
     this.state = {
       ExpenseisOpen: false,
       IncomeisOpen: false,
+      balance: 0,
       transactions: [],
-      amount: "",
-      category: "",
-      description: "",
-      date: "",
-      key: ""
+      newTransaction: {
+        amount: "",
+        category: "",
+        description: "",
+        date: "",
+        key: ""
+      },
     }
 
     // Bind "this" to constructor
@@ -29,41 +33,67 @@ class MainAccount extends Component {
   // Guzik "Dodaj"
   addIncome(e) {
     e.preventDefault();
-    console.log("Add income clicked");
+
+    // let updateBalance = this.state.balance + this.state.amount;
+
     console.log(`
-    Amount: ${this.state.amount} 
-    Category: ${this.state.category}
-    Date: ${this.state.date}
-    Description: ${this.state.description}
-  `);
+    Amount: ${this.state.newTransaction.amount} 
+    Category: ${this.state.newTransaction.category}
+    Date: ${this.state.newTransaction.date}
+    Description: ${this.state.newTransaction.description}
+    `);
+
+    const newTransaction = this.state.newTransaction;
+    const newTransactions = [...this.state.transactions, newTransaction];
+
+    this.setState({
+      transactions: newTransactions,
+      newTransaction: {
+        amount: "",
+        category: "",
+        description: "",
+        date: ""
+      }
+    })
   }
 
   handleIncomeAmount(e) {
     this.setState({
-      amount: e.target.value,
+      newTransaction: {
+        ...this.state.newTransaction,
+        amount: e.target.value
+      }
     })
   }
 
   handleCategory(e) {
     this.setState({
-      category: e.target.value,
+      newTransaction: {
+        ...this.state.newTransaction,
+        category: e.target.value
+      }
     })
   }
 
   handleDate(e) {
     this.setState({
-      date: e.target.value,
+      newTransaction: {
+        ...this.state.newTransaction,
+        date: e.target.value
+      }
     })
   }
 
   handleDescription(e) {
     this.setState({
-      description: e.target.value,
+      newTransaction: {
+        ...this.state.newTransaction,
+        description: e.target.value
+      }
     })
   }
 
   render() {
-
     return (
       <div className="animated fadeIn">
         {/* Nagłówek */}
@@ -99,9 +129,10 @@ class MainAccount extends Component {
 
                     <Input type="select" name="category" id="category" value={this.state.category}
                       onChange={this.handleCategory} >
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
+                      <option value="Wybierz kategorię">Wybierz kategorię</option>
+                      <option value="Transport">Transport</option>
+                      <option value="Jedzenie">Jedzenie</option>
+                      <option value="Ubrania">Ubrania</option>
                     </Input>
                   </FormGroup>
 
@@ -172,8 +203,16 @@ class MainAccount extends Component {
                     <Input type="text" id="description" placeholder="Podaj opis" />
                   </FormGroup>
 
+                  {/* Dodaj wydatek */}
                   <div className="float-right">
-                    <Button outline color="primary" className="mr-1">Dodaj</Button>
+                    <Button outline
+                      color="primary"
+                      className="mr-1"
+                      onClick={this.addIncome}
+                    >
+                      Dodaj
+                    </Button>
+
                     <Button outline color="danger" onClick={(e) => this.setState({ ExpenseisOpen: false })}>Anuluj</Button>
                   </div>
 
@@ -191,37 +230,7 @@ class MainAccount extends Component {
               </CardHeader>
               <CardBody>
                 <ListGroup>
-
-                  {/* item */}
-                  <ListGroupItem action>
-                    <ListGroupItemHeading>
-                      Kategoria
-                      <span className="float-right">20zł</span>
-                    </ListGroupItemHeading>
-
-                    <ListGroupItemText>
-                      Opis transakcji
-                      <span className="float-right">10/01/2020</span>
-                    </ListGroupItemText>
-                    <Button color="danger" className="float-right ml-1" outline>Usuń</Button>
-                    <Button color="warning" className="float-right" outline>Edytuj</Button>
-                  </ListGroupItem>
-
-                  {/* item */}
-                  <ListGroupItem action>
-                    <ListGroupItemHeading>
-                      Kategoria
-                      <span className="float-right">20zł</span>
-                    </ListGroupItemHeading>
-
-                    <ListGroupItemText>
-                      Opis transakcji
-                      <span className="float-right">10/01/2020</span>
-                    </ListGroupItemText>
-                    <Button color="danger" className="float-right ml-1" outline>Usuń</Button>
-                    <Button color="warning" className="float-right" outline>Edytuj</Button>
-                  </ListGroupItem>
-
+                  <TransactionListItems transactions={this.state.transactions} />
                 </ListGroup>
               </CardBody>
             </Card>
