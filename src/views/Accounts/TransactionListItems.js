@@ -4,10 +4,25 @@ import { Button, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from '
 
 class TransactionItemList extends Component {
 
+  deleteItem(index) {
+
+    return () => {
+      let balance = JSON.parse(localStorage.getItem("balance"));
+      const allItems = JSON.parse(localStorage.getItem("transactions"));
+
+      balance -= allItems[index].amount;
+
+      localStorage.setItem("balance", balance);
+      allItems.splice(index, 1);
+      localStorage.setItem("transactions", JSON.stringify(allItems));
+      this.props.onDelete();
+    }
+  }
+
   render() {
     const transactions = this.props.transactions;
-    console.log(transactions);
-    const transactionList = transactions.map(transaction => {
+
+    const transactionList = transactions.map((transaction, index) => {
       return (
         <>
           <ListGroupItem action>
@@ -21,7 +36,13 @@ class TransactionItemList extends Component {
               <span className="float-right">{transaction.date}</span>
             </ListGroupItemText>
 
-            <Button color="danger" className="float-right ml-1" outline>Usuń</Button>
+            <Button
+              color="danger"
+              className="float-right ml-1"
+              onClick={this.deleteItem(index)}
+              outline>
+              Usuń
+              </Button>
             <Button color="warning" className="float-right" outline>Edytuj</Button>
           </ListGroupItem>
         </>

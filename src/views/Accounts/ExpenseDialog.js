@@ -9,7 +9,7 @@ class ExpenseDialog extends Component {
       </div>
     )
     
-    if (! this.props.ExpenseisOpen) {
+    if (! this.props.expenseIsOpen) {
       dialog = null;
     }
     

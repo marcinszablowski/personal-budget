@@ -9,7 +9,7 @@ class IncomeDialog extends Component {
       </div>
     )
     
-    if (! this.props.IncomeisOpen) {
+    if (! this.props.incomeIsOpen) {
       dialog = null;
     }
     
