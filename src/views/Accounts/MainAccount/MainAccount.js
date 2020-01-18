@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Badge, Button, Card, CardBody, CardHeader, Col, Row, Table, ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText, Form, Label, Input, FormGroup } from 'reactstrap';
+import { Button, Card, CardBody, CardHeader, Col, FormGroup, Row, ListGroup, Label, Input } from 'reactstrap';
 import ExpenseDialog from '../ExpenseDialog';
 import IncomeDialog from '../IncomeDialog';
 import TransactionListItems from '../TransactionListItems';
@@ -231,7 +231,7 @@ class MainAccount extends Component {
                     <Label htmlFor="category">Kategoria</Label>
                     <Input type="select" name="category" id="category" value={this.state.category}
                       onChange={this.handleCategory}>
-                      <option value="" disabled selected hidden>Wybierz kategorię</option>
+                      <option value="" hidden>Wybierz kategorię</option>
                       <option value="Transport">Transport</option>
                       <option value="Zakupy">Zakupy</option>
                       <option value="Ubrania">Ubrania</option>

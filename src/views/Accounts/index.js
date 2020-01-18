@@ -1,8 +1,5 @@
-import CoreUIIcons from './MainAccount/MainAccount';
-import Flags from './Flags';
-import FontAwesome from './FontAwesome';
-import SimpleLineIcons from './SimpleLineIcons';
+import MainAccount from './MainAccount/MainAccount';
 
 export {
-  CoreUIIcons, Flags, FontAwesome, SimpleLineIcons
+  MainAccount
 };

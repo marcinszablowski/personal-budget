@@ -4,28 +4,14 @@ import * as router from 'react-router-dom';
 import { Container } from 'reactstrap';
 
 
-// *Firebase
-// import { DB_CONFIG } from '../../views/Config/config'
-// // import firebase from 'firebase/app';
-
-// // Firebase App (the core Firebase SDK) is always required and must be listed first
-// import * as firebase from "firebase/app";
-
-// // Add the Firebase products that you want to use
-// import "firebase/auth";
-// import "firebase/firestore";
-
-
 import {
   AppAside,
-  AppFooter,
   AppHeader,
   AppSidebar,
   AppSidebarFooter,
   AppSidebarForm,
   AppSidebarHeader,
   AppSidebarMinimizer,
-  AppBreadcrumb2 as AppBreadcrumb,
   AppSidebarNav2 as AppSidebarNav,
 } from '@coreui/react';
 // sidebar nav config
@@ -48,23 +34,6 @@ class DefaultLayout extends Component {
 
 
   render() {
-    
-    // if (!firebase.apps.length) {
-    //   firebase.initializeApp(DB_CONFIG);
-    // }
-    
-    // console.log(firebase);
-
-    // firebase.database();
-
-    // const ref = database.ref("transactions");
-
-    // let data = {
-    //   ammount: 10,
-    //   category: "Transport"
-    // }
-
-    // ref.push(data);
 
     return (
       <div className="app">
@@ -112,11 +81,6 @@ class DefaultLayout extends Component {
             </Suspense>
           </AppAside>
         </div>
-        {/* <AppFooter>
-          <Suspense fallback={this.loading()}>
-            <DefaultFooter />
-          </Suspense>
-        </AppFooter> */}
       </div>
     );
   }
