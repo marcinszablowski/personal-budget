@@ -29,7 +29,7 @@ class DefaultHeader extends Component {
 
         <Nav className="ml-auto" navbar>
           <NavItem className="d-md-down-none">
-            Cześć, Marcin
+            {/* Cześć, Marcin */}
           </NavItem>
 
           <UncontrolledDropdown nav direction="down">

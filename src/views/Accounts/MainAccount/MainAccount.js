@@ -9,11 +9,10 @@ class MainAccount extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      expenseIsOpen: false,
       incomeIsOpen: false,
+      expenseIsOpen: false,
       balance: JSON.parse(localStorage.getItem("balance")),
       transactions: JSON.parse(localStorage.getItem("transactions")),
-      itemKey: 0,
       newTransaction: {
         amount: "",
         category: "",
@@ -47,7 +46,6 @@ class MainAccount extends Component {
     const newTransaction = this.state.newTransaction;
     const newTransactions = [newTransaction, ...this.state.transactions];
     const newBalance = parseInt(this.state.balance) + parseInt(this.state.newTransaction.amount);
-    const itemKey = JSON.parse(localStorage.getItem("transactions")) === null ? 0 : (JSON.parse(localStorage.getItem("transactions")).length);
 
     this.setState({
       transactions: newTransactions,
@@ -57,7 +55,7 @@ class MainAccount extends Component {
         category: "",
         description: "",
         date: "",
-        key: itemKey,
+        key: "",
       },
       incomeIsOpen: false,
       expenseIsOpen: false
@@ -110,7 +108,8 @@ class MainAccount extends Component {
     this.setState({
       newTransaction: {
         ...this.state.newTransaction,
-        description: e.target.value
+        description: e.target.value,
+        key: Date.now()
       }
     })
   }
@@ -126,10 +125,10 @@ class MainAccount extends Component {
   }
 
   reloadData() {
-      this.setState({
-        balance: JSON.parse(localStorage.getItem("balance")),
+    this.setState({
+      balance: JSON.parse(localStorage.getItem("balance")),
       transactions: JSON.parse(localStorage.getItem("transactions"))
-      })
+    })
   }
 
 
@@ -279,7 +278,7 @@ class MainAccount extends Component {
               </CardHeader>
               <CardBody>
                 <ListGroup>
-                  <TransactionListItems transactions={this.state.transactions} onDelete={() => this.reloadData()}/>
+                  <TransactionListItems transactions={this.state.transactions} onDelete={() => this.reloadData()} />
                 </ListGroup>
               </CardBody>
             </Card>

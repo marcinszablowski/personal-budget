@@ -10,18 +10,22 @@ class TransactionItemList extends Component {
       let balance = JSON.parse(localStorage.getItem("balance"));
       const allItems = JSON.parse(localStorage.getItem("transactions"));
 
+      // Aktualizacja stanu konta
       balance -= allItems[index].amount;
-
       localStorage.setItem("balance", balance);
+
+      // Usunięcie elementu z tablicy
       allItems.splice(index, 1);
       localStorage.setItem("transactions", JSON.stringify(allItems));
+      
       this.props.onDelete();
     }
   }
 
   render() {
     const transactions = this.props.transactions;
-
+    // const key = this.props.key
+    
     const transactionList = transactions.map((transaction, index) => {
       return (
         <>
@@ -43,7 +47,7 @@ class TransactionItemList extends Component {
               outline>
               Usuń
               </Button>
-            <Button color="warning" className="float-right" outline>Edytuj</Button>
+            {/* <Button color="warning" className="float-right" outline>Edytuj</Button> */}
           </ListGroupItem>
         </>
       )

@@ -16,20 +16,20 @@ export default {
       icon: 'icon-credit-card',
       children: [
         {
-          name: 'Konto główne',
+          name: 'Moje konto',
           url: '/accounts/main-account',
           icon: 'icon-arrow-right',
         },
-        {
-          name: 'Oszczędności',
-          url: '/',
-          icon: 'icon-arrow-right',
-        },
-        {
-          name: 'Wakacje',
-          url: '/',
-          icon: 'icon-arrow-right',
-        },
+        // {
+        //   name: 'Oszczędności',
+        //   url: '/',
+        //   icon: 'icon-arrow-right',
+        // },
+        // {
+        //   name: 'Wakacje',
+        //   url: '/',
+        //   icon: 'icon-arrow-right',
+        // },
       ],
     },
     {
